@@ -5,7 +5,12 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        outlineo: "url('../public/icon-o-outline.svg')",
+        outlinex: "url('../public/icon-x-outline.svg')",
+      },
+    },
   },
   plugins: [],
 };

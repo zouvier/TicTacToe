@@ -32,8 +32,8 @@ const Home = () => {
       </div>
 
       <div className="flex flex-col gap-4 pt-4 text-[#1A2A33]">
-        <Link tabindex="-1" id="mbl" href={{ pathname: './cpugame', query: data }}> <button type="button" id="makeButton" className="uppercase bg-[#F2B137] w-[100%] py-4 font-black rounded-xl shadow-[inset_0px_-8px_0px_#CC8B13]">new game (vs cpu) </button> </Link>
-        <Link tabindex="-1" href={{ pathname: './pvpgame', query: data }}> <button type="button" id="makeButton2" className="uppercase bg-[#31C3BD] w-[100%] py-4 font-black rounded-xl shadow-[inset_0px_-8px_0px_#118c87]">new game (vs player) </button> </Link>
+        {/* <Link tabIndex="-1" href={{ pathname: './game', query: [data.user, 'cpu'] }}> <button type="button" id="makeButton" className="uppercase bg-[#F2B137] w-[100%] py-4 font-black rounded-xl shadow-[inset_0px_-8px_0px_#CC8B13]">new game (vs cpu) </button> </Link> */}
+        <Link tabIndex="-1" href={{ pathname: './game', query: [data.user, 'player'] }}> <button type="button" id="makeButton2" className="uppercase bg-[#31C3BD] w-[100%] py-4 font-black rounded-xl shadow-[inset_0px_-8px_0px_#118c87]">new game (vs player) </button> </Link>
       </div>
     </div>
   );
