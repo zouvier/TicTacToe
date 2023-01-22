@@ -45,7 +45,7 @@ const Game = () => {
   const mode = query[1];
   const [gameboard, setGameboard] = useState({ 0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false });
   const [turn, setTurn] = useState({ playerturn: 'X' });
-  const [iconimage, setIconimage] = useState({ playerimage: '../icon-x.svg' });
+  const [iconimage, setIconimage] = useState({ playerimage: '../icon-X.svg' });
   const [choice, setChoice] = useState({ cpuChoice: '' });
   const [score, setScore] = useState({ X: 0, tie: 0, O: 0 });
   const firstUpdate = useRef(false);
@@ -80,12 +80,12 @@ const Game = () => {
 
         if (turn.playerturn === 'X' && choice.cpuChoice === 'X') {
           console.log('cpu chose X');
-          setIconimage({ playerimage: '../icon-o.svg' });
+          setIconimage({ playerimage: '../icon-O.svg' });
           setTurn({ playerturn: 'O' });
           randomNum(choice.cpuChoice);
         } else if (turn.playerturn === 'O' && choice.cpuChoice === 'O') {
           console.log('cpu chose O');
-          setIconimage({ playerimage: '../icon-x.svg' });
+          setIconimage({ playerimage: '../icon-X.svg' });
           setTurn({ playerturn: 'X' });
           randomNum(choice.cpuChoice);
         }
@@ -127,11 +127,11 @@ const Game = () => {
 
     if (firstUpdate.current) {
       if (turn.playerturn === 'X') {
-        setIconimage({ playerimage: '../icon-o.svg' });
+        setIconimage({ playerimage: '../icon-O.svg' });
         setTurn({ playerturn: 'O' });
         console.log(turn.playerturn);
       } else if (turn.playerturn === 'O') {
-        setIconimage({ playerimage: '../icon-x.svg' });
+        setIconimage({ playerimage: '../icon-X.svg' });
         console.log(turn.playerturn);
         setTurn({ playerturn: 'X' });
       }
@@ -167,15 +167,15 @@ const Game = () => {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-x-5 gap-y-5 mt-16 m-auto">
-        <div type="button" id="position1" className={`${(turn.playerturn === 'O' && gameboard[0] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[0] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(0, turn.playerturn.toLowerCase()); }}> {gameboard[0] ? <Image src={`../icon-${gameboard[0]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
-        <div type="button" id="position2" className={`${(turn.playerturn === 'O' && gameboard[1] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[1] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(1, turn.playerturn.toLowerCase()); }}> {gameboard[1] ? <Image src={`../icon-${gameboard[1]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
-        <div type="button" id="position3" className={`${(turn.playerturn === 'O' && gameboard[2] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[2] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(2, turn.playerturn.toLowerCase()); }}> {gameboard[2] ? <Image src={`../icon-${gameboard[2]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
-        <div type="button" id="position4" className={`${(turn.playerturn === 'O' && gameboard[3] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[3] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(3, turn.playerturn.toLowerCase()); }}> {gameboard[3] ? <Image src={`../icon-${gameboard[3]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
-        <div type="button" id="position5" className={`${(turn.playerturn === 'O' && gameboard[4] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[4] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(4, turn.playerturn.toLowerCase()); }}> {gameboard[4] ? <Image src={`../icon-${gameboard[4]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
-        <div type="button" id="position6" className={`${(turn.playerturn === 'O' && gameboard[5] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[5] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(5, turn.playerturn.toLowerCase()); }}> {gameboard[5] ? <Image src={`../icon-${gameboard[5]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
-        <div type="button" id="position7" className={`${(turn.playerturn === 'O' && gameboard[6] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[6] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(6, turn.playerturn.toLowerCase()); }}> {gameboard[6] ? <Image src={`../icon-${gameboard[6]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
-        <div type="button" id="position8" className={`${(turn.playerturn === 'O' && gameboard[7] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[7] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(7, turn.playerturn.toLowerCase()); }}> {gameboard[7] ? <Image src={`../icon-${gameboard[7]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
-        <div type="button" id="position9" className={`${(turn.playerturn === 'O' && gameboard[8] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[8] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(8, turn.playerturn.toLowerCase()); }}> {gameboard[8] ? <Image src={`../icon-${gameboard[8]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position1" className={`${(turn.playerturn === 'O' && gameboard[0] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[0] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(0, turn.playerturn); }}> {gameboard[0] ? <Image src={`../icon-${gameboard[0]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position2" className={`${(turn.playerturn === 'O' && gameboard[1] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[1] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(1, turn.playerturn); }}> {gameboard[1] ? <Image src={`../icon-${gameboard[1]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position3" className={`${(turn.playerturn === 'O' && gameboard[2] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[2] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(2, turn.playerturn); }}> {gameboard[2] ? <Image src={`../icon-${gameboard[2]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position4" className={`${(turn.playerturn === 'O' && gameboard[3] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[3] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(3, turn.playerturn); }}> {gameboard[3] ? <Image src={`../icon-${gameboard[3]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position5" className={`${(turn.playerturn === 'O' && gameboard[4] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[4] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(4, turn.playerturn); }}> {gameboard[4] ? <Image src={`../icon-${gameboard[4]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position6" className={`${(turn.playerturn === 'O' && gameboard[5] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[5] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(5, turn.playerturn); }}> {gameboard[5] ? <Image src={`../icon-${gameboard[5]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position7" className={`${(turn.playerturn === 'O' && gameboard[6] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[6] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(6, turn.playerturn); }}> {gameboard[6] ? <Image src={`../icon-${gameboard[6]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position8" className={`${(turn.playerturn === 'O' && gameboard[7] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[7] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(7, turn.playerturn); }}> {gameboard[7] ? <Image src={`../icon-${gameboard[7]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
+        <div type="button" id="position9" className={`${(turn.playerturn === 'O' && gameboard[8] === false) ? 'hover:bg-outlineo' : (turn.playerturn === 'X' && gameboard[8] === false ? 'hover:bg-outlinex' : 'bg-none')} cursor-pointer bg-center hover:bg-no-repeat w-[96px] h-[96px] bg-[#1F3641] flex items-center place-content-center shadow-[inset_0px_-8px_0px_#10212A] rounded-xl`} onClick={() => { checkPosition(8, turn.playerturn); }}> {gameboard[8] ? <Image src={`../icon-${gameboard[8]}.svg`} width={40} height={40} alt="X/O" /> : ''} </div>
         <div className="w-[96px] h-[64px] rounded-xl text-center bg-[#31C3BD] pt-2">
           <h1>X</h1>
           <p className="font-bold">{score.X}</p>
